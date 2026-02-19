@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card main-card">
+            <h1 class="title">Expense Tracker</h1>
+            
+            <div class="balance-card">
+                <p class="balance-label">Total Balance</p>
+                <h2 class="balance-amount" id="balance">₹0.00</h2>
+            </div>
+
+            <div class="summary">
+                <div class="summary-card income-card" onclick="filterTransactions('income')">
+                    <p class="summary-label">Income</p>
+                    <p class="summary-amount" id="income">₹0.00</p>
+                </div>
+                <div class="summary-card expense-card" onclick="filterTransactions('expense')">
+                    <p class="summary-label">Expenses</p>
+                    <p class="summary-amount" id="expense">₹0.00</p>
+                </div>
+            </div>
+
+            <div class="form-card">
+                <h3>Add Transaction</h3>
+                <form id="transaction-form">
+                    <div class="form-group">
+                        <input type="text" id="description" placeholder="Description" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="amount" placeholder="Amount" step="0.01" required>
+                    </div>
+                    <div class="form-group radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="type" value="income" checked>
+                            <span class="radio-custom income">Income</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="type" value="expense">
+                            <span class="radio-custom expense">Expense</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-submit">Add Transaction</button>
+                </form>
+            </div>
+
+            <div class="transactions-card">
+                <div class="transactions-header">
+                    <h3>Transaction History</h3>
+                    <div class="filter-buttons">
+                        <button class="btn-filter active" onclick="filterTransactions('all')">All</button>
+                        <button class="btn-filter" onclick="filterTransactions('income')">Income</button>
+                        <button class="btn-filter" onclick="filterTransactions('expense')">Expenses</button>
+                    </div>
+                </div>
+                <ul id="transaction-list"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
